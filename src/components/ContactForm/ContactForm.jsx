@@ -1,13 +1,10 @@
-import { nanoid } from "nanoid";
 import { useId } from "react";
-import { faker } from "@faker-js/faker";
 import { Field, Form, Formik, ErrorMessage } from "formik";
 import { InputMask } from "@react-input/mask";
 import * as Yup from "yup";
-
-import css from "./ContactForm.module.css";
 import { useDispatch } from "react-redux";
 import { addContact } from "../../redux/contactsSlice";
+import css from "./ContactForm.module.css";
 
 const initialValues = {
   name: "",
