@@ -35,10 +35,6 @@
   font-weight: 800;
 }
 
-/* .contact:hover p:first-child::before {
-  content: "Add ";
-} */
-
 .contactInfo {
   display: flex;
   flex-direction: column;

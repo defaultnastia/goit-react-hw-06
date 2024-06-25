@@ -1,8 +1,12 @@
 import { Tooltip } from "react-tooltip";
 
 import css from "./Contact.module.css";
+import { useDispatch } from "react-redux";
+import { deleteContact } from "../../redux/contactsSlice";
 
-const Contact = ({ contact, handleDelete }) => {
+const Contact = ({ contact }) => {
+  const dispatch = useDispatch();
+
   return (
     <div className={css.contactBox}>
       <img src={contact.avatar} alt="avatar" />
@@ -15,7 +19,7 @@ const Contact = ({ contact, handleDelete }) => {
         className={css.delete}
         data-tooltip-id="delete"
         onClick={() => {
-          handleDelete(contact.id);
+          dispatch(deleteContact(contact.id));
         }}
       >
         ❌

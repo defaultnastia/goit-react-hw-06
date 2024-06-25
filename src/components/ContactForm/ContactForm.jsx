@@ -6,6 +6,8 @@ import { InputMask } from "@react-input/mask";
 import * as Yup from "yup";
 
 import css from "./ContactForm.module.css";
+import { useDispatch } from "react-redux";
+import { addContact } from "../../redux/contactsSlice";
 
 const initialValues = {
   name: "",
@@ -27,12 +29,12 @@ const contactValidationSchema = Yup.object().shape({
     .required("Please enter contact's phone"),
 });
 
-const ContactForm = ({ handleAddContact }) => {
+const ContactForm = () => {
+  const dispatch = useDispatch();
+
   const handleSubmit = (values, actions) => {
-    values.id = nanoid(10);
     values.name = values.name.trim();
-    values.avatar = faker.image.urlPicsumPhotos({ height: 80, width: 80 });
-    handleAddContact(values);
+    dispatch(addContact(values));
     actions.resetForm();
   };
 
